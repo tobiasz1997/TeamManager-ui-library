@@ -1,0 +1,39 @@
+@import '../../core/styles/global.scss';
+
+@mixin button($color) {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: $color;
+  padding: 0;
+  font-size: $font-default;
+  line-height: 1.5;
+  display: flex;;
+  justify-content: center;
+  align-items: center;
+
+  & > #icon {
+    padding-left: 4px;
+    font-size: 20px;
+    transition: .5s;
+  }
+
+  & > #label {
+    padding-top: 2px;
+  }
+
+  &:hover {
+    & > #icon {
+      padding-right: 4px;
+      padding-left: 0;
+    }
+  }
+}
+
+.button__primary {
+  @include button($primary-color);
+}
+
+.button__secondary {
+  @include button($tertiary-color);
+}

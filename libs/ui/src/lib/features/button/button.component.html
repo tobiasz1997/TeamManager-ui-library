@@ -1,0 +1,22 @@
+<button
+  (click)='handleClick()'
+  [type]='type'
+  [disabled]='disabled'
+  [ngClass]="{
+    'button__primary': color === 'primary',
+    'button__secondary' : color === 'secondary',
+    'button__transparent': color === 'transparent',
+    'button__small' : size === 'small',
+    'button__default' : size === 'default',
+    'button__large' : size === 'large',
+    'button__disabled': disabled
+  }"
+>
+  <span class='spinner' *ngIf='loading$ | async'>
+    <tm-ui-spinner></tm-ui-spinner>
+  </span>
+  <span [ngStyle]="{'visibility': (loading$ | async) ? 'hidden' : 'visible'}">
+    {{ label | titlecase }}
+  </span>
+</button>
+

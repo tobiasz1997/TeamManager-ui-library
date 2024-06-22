@@ -1,16 +1,12 @@
 {
-  "root": true,
   "ignorePatterns": ["!**/*"],
-  "plugins": ["@nx"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nx/typescript"],
       "rules": {}
     },
     {
       "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nx/javascript"],
       "rules": {}
     },
     {
@@ -18,12 +14,10 @@
       "parser": "jsonc-eslint-parser",
       "rules": {
         "@nx/dependency-checks": [
-          "error",
-          {
-            "ignoredFiles": ["{projectRoot}/vite.config.{js,ts,mjs,mts}"]
-          }
+          "error"
         ]
       }
     }
-  ]
+  ],
+  "extends": ["./.eslintrc.base.json"]
 }
