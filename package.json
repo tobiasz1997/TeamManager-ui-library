@@ -20,8 +20,6 @@
     "@angular/platform-browser-dynamic": "~18.0.0",
     "@angular/router": "~18.0.0",
     "material-icons": "^1.13.12",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
