@@ -1,16 +1,15 @@
 import { PaginationComponent } from './pagination.component';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import { activatedRouteMock, routerMock } from '../../../../../../mocks/global-mocks';
 import { of } from 'rxjs';
 import { NavigationExtras } from '@angular/router';
 import { PAGE_NAME } from '../../core/constants/constants';
+import { activatedRouteSpy, routerSpy } from '@mocks';
 
 describe('PaginationComponent', () => {
   let component: PaginationComponent;
-  let activatedRoute = activatedRouteMock;
+  let activatedRoute = activatedRouteSpy;
 
   beforeEach(() => {
-    component = new PaginationComponent(activatedRoute, routerMock);
+    component = new PaginationComponent(activatedRoute, routerSpy);
   });
 
   it('should create', () => {
@@ -26,13 +25,13 @@ describe('PaginationComponent', () => {
     activatedRoute = {
       queryParams: of({ [PAGE_NAME]: 16 })
     };
-    component = new PaginationComponent(activatedRoute, routerMock);
+    component = new PaginationComponent(activatedRoute, routerSpy);
     component.ngOnInit();
     expect(component.page).toBe(16);
   });
 
   it('should on change page update route', () => {
-    const emit = jest.spyOn(routerMock, 'navigate').mockReset();
+    const emit = jest.spyOn(routerSpy, 'navigate').mockReset();
     component.handlePageChange(3);
     expect(emit).toHaveBeenCalledWith([], expect.objectContaining<NavigationExtras>({
       queryParams: expect.objectContaining({ [PAGE_NAME]: 3 })

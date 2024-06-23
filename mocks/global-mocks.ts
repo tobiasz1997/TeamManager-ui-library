@@ -1,15 +1,19 @@
 import { of } from 'rxjs';
 
-export const elementRefMock: ReturnType<jest.Mock> = {
+export const elementRefSpy: ReturnType<jest.Mock> = {
   nativeElement: {
     contains: (value: boolean) => value
   }
 };
 
-export const activatedRouteMock: ReturnType<jest.Mock> = {
+export const activatedRouteSpy: ReturnType<jest.Mock> = {
   queryParams: of({})
 };
 
-export const routerMock: ReturnType<jest.Mock> = {
+export const routerSpy: ReturnType<jest.Mock> = {
   navigate: jest.fn().mockReset()
+};
+
+export const mouseEventSpy: ReturnType<jest.Mock> = {
+  preventDefault: jest.fn()
 };

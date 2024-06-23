@@ -1,12 +1,11 @@
 import { ClickOutsideDirective } from './click-outside.directive';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import { elementRefMock } from '../../../../../../mocks/global-mocks';
+import { elementRefSpy } from '@mocks';
 
 describe('ClickOutsideDirective', () => {
   let component: ClickOutsideDirective;
 
   beforeEach(() => {
-    component = new ClickOutsideDirective(elementRefMock);
+    component = new ClickOutsideDirective(elementRefSpy);
   });
 
   it('should create', () => {
